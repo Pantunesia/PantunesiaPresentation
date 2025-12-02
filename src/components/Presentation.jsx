@@ -2,6 +2,7 @@ import { usePresentationNavigation } from '../hooks/usePresentationNavigation';
 import { useKeyboardNavigation } from '../hooks/useKeyboardNavigation';
 import { useTouchNavigation } from '../hooks/useTouchNavigation';
 import { useMouseWheelNavigation } from '../hooks/useMouseWheelNavigation';
+import { useMouseActivityDetector } from '../hooks/useMouseActivityDetector';
 
 import { ProgressBar } from './ProgressBar';
 import { Navigation } from './Navigation';
@@ -31,6 +32,9 @@ const TOTAL_SLIDES = 18;
 export const Presentation = () => {
   const { currentSlide, showSlide, nextSlide, previousSlide, updateProgress } =
     usePresentationNavigation(TOTAL_SLIDES);
+
+  // Detect mouse activity for UI fade
+  const isMouseActive = useMouseActivityDetector(3000);
 
   // Setup keyboard navigation
   useKeyboardNavigation({
@@ -76,7 +80,7 @@ export const Presentation = () => {
   ];
 
   return (
-    <div className="presentation">
+    <div className={`presentation ${isMouseActive ? 'mouse-active' : 'mouse-inactive'}`}>
       {/* Melayu Theme Background Layers */}
       <div className="melayu-background"></div>
       <div className="grid-pattern"></div>
@@ -112,6 +116,20 @@ export const Presentation = () => {
           <div className="keyboard-key">↓</div>
           <div className="keyboard-key">→</div>
         </div>
+      </div>
+      {/* Keyboard Shortcuts Legend */}
+      <div className="keyboard-legend">
+        <span className="legend-item"><kbd>↑</kbd>Prev</span>
+        <span className="legend-item"><kbd>↓</kbd>Next</span>
+        <span className="legend-item"><kbd>←</kbd>Prev</span>
+        <span className="legend-item"><kbd>→</kbd>Next</span>
+        <span className="legend-item"><kbd>Space</kbd>Next</span>
+        <span className="legend-item"><kbd>PgUp</kbd>Prev</span>
+        <span className="legend-item"><kbd>PgDn</kbd>Next</span>
+        <span className="legend-item"><kbd>Home</kbd>First</span>
+        <span className="legend-item"><kbd>End</kbd>Last</span>
+        <span className="legend-item"><kbd>F</kbd>Full</span>
+        <span className="legend-item"><kbd>P</kbd>Print</span>
       </div>
     </div>
   );

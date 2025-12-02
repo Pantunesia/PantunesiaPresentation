@@ -7,6 +7,7 @@ export const useKeyboardNavigation = ({ nextSlide, previousSlide, showSlide, tot
         case 'ArrowRight':
         case ' ':
         case 'PageDown':
+        case 'ArrowDown':
           e.preventDefault();
           // Simulate click on active slide (same as click function)
           const activeSlideEl = document.querySelector('.slide.active');
@@ -16,6 +17,7 @@ export const useKeyboardNavigation = ({ nextSlide, previousSlide, showSlide, tot
           break;
         case 'ArrowLeft':
         case 'PageUp':
+        case 'ArrowUp':
           e.preventDefault();
           // Check if current slide animation can be reverted
           const backAnimationState = window.slideAnimationState;

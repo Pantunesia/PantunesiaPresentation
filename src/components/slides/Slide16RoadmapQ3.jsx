@@ -7,6 +7,7 @@ export const Slide16RoadmapQ3 = memo(({ isActive, onNextSlide }) => {
   const items = [
     { icon: 'globe', description: 'Portal pantun berbasis komunitas' },
     { icon: 'handshake', description: 'Kolaborasi dengan komunitas budaya & sekolah' },
+    { icon: 'museum', description: 'Museum pantun online' },
   ];
 
   return (

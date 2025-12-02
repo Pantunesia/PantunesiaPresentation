@@ -11,8 +11,19 @@ export const Navigation = ({ currentSlide, totalSlides, onNextSlide, onPreviousS
     }
   }, [currentSlide, totalSlides, onShowSlide]);
 
+  const handleFirstSlide = useCallback(() => {
+    onShowSlide(1);
+  }, [onShowSlide]);
+
+  const handleLastSlide = useCallback(() => {
+    onShowSlide(totalSlides);
+  }, [totalSlides, onShowSlide]);
+
   return (
     <div className="navigation">
+      <button className="nav-btn first-btn" onClick={handleFirstSlide} aria-label="First slide" title="Go to first slide">
+        <i className="fas fa-step-backward"></i>
+      </button>
       <button className="nav-btn prev-btn" onClick={onPreviousSlide} aria-label="Previous slide">
         <i className="fas fa-chevron-left"></i>
       </button>
@@ -21,6 +32,9 @@ export const Navigation = ({ currentSlide, totalSlides, onNextSlide, onPreviousS
       </div>
       <button className="nav-btn next-btn" onClick={onNextSlide} aria-label="Next slide">
         <i className="fas fa-chevron-right"></i>
+      </button>
+      <button className="nav-btn last-btn" onClick={handleLastSlide} aria-label="Last slide" title="Go to last slide">
+        <i className="fas fa-step-forward"></i>
       </button>
     </div>
   );
