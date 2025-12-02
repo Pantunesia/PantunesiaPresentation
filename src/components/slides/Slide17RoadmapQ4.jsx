@@ -16,7 +16,7 @@ export const Slide17RoadmapQ4 = memo(({ isActive, onNextSlide }) => {
           <SlideTitle>Rencana Pengembangan</SlideTitle>
           <div className="roadmap-quarter">
             <div className="quarter-header">
-              <h3>Bulan 9 - 12</h3>
+              <h3 className="quarter-header-title">Bulan 9 - 12</h3>
               <span className="quarter-label">Q4</span>
             </div>
             <div className="roadmap-items">

@@ -34,7 +34,28 @@ export const useKeyboardNavigation = ({ nextSlide, previousSlide, showSlide, tot
         case 'ArrowLeft':
         case 'PageUp':
           e.preventDefault();
-          previousSlide();
+          // Check if current slide animation is complete
+          const backAnimationState = window.slideAnimationState;
+          if (backAnimationState) {
+            const slides = Object.values(backAnimationState);
+            const activeAnimationSlide = slides.find(s => s.isActive);
+
+            if (activeAnimationSlide && activeAnimationSlide.visibleItems >= activeAnimationSlide.totalItems) {
+              // All items shown, move to previous slide
+              previousSlide();
+            } else if (activeAnimationSlide) {
+              // Items still to show, just click to show next item
+              const activeSlideEl = document.querySelector('.slide.active');
+              if (activeSlideEl) {
+                activeSlideEl.click();
+              }
+            } else {
+              // No animation, just move to previous slide
+              previousSlide();
+            }
+          } else {
+            previousSlide();
+          }
           break;
         case 'Home':
           e.preventDefault();
