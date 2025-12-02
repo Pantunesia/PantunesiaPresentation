@@ -1013,10 +1013,9 @@ html, body, #root {
 /* Budaya Logo */
 .budaya-logo {
     position: fixed;
-    top: 100px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 80px;
+    top: 20px;
+    left: 20px;
+    height: 60px;
     object-fit: contain;
     z-index: 200;
     opacity: 0.9;
@@ -1028,17 +1027,34 @@ html, body, #root {
     opacity: 1;
 }
 
+/* Competition Info Text */
+.competition-info {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+    text-align: right;
+    pointer-events: none;
+}
+
+.competition-info p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color);
+    line-height: 1.4;
+}
+
 /* Navigation */
 .navigation {
     position: fixed;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 20px;
+    left: 20px;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
     background: var(--white);
-    padding: 15px 30px;
+    padding: 12px 20px;
     border-radius: 50px;
     box-shadow: var(--shadow);
     z-index: 100;
@@ -1075,6 +1091,47 @@ html, body, #root {
     min-width: 80px;
     text-align: center;
     cursor: pointer;
+}
+
+/* Keyboard Navigation UI */
+.keyboard-ui {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.keyboard-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.keyboard-key {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.keyboard-key.spacer {
+    width: 8px;
+    height: 40px;
+    border: none;
+    background: none;
+    box-shadow: none;
 }
 
 /* Progress Bar */
@@ -1164,8 +1221,8 @@ html, body, #root {
 .presentation::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
+    top: calc(50% - 28.125vw);
+    left: calc(50% - 50vw);
     width: 40px;
     height: 40px;
     border-top: 3px solid var(--primary-color);
@@ -1180,8 +1237,8 @@ html, body, #root {
 .presentation::after {
     content: '';
     position: fixed;
-    top: 0;
-    right: 0;
+    top: calc(50% - 28.125vw);
+    right: calc(50% - 50vw);
     width: 40px;
     height: 40px;
     border-top: 3px solid var(--primary-color);
@@ -1192,13 +1249,14 @@ html, body, #root {
     opacity: 0.35;
 }
 
-/* Bottom corner guides container */
+/* Corner guides container for bottom corners */
 .corner-guides {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
+    width: 100vw;
+    height: 56.25vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 200;
     pointer-events: none;
 }

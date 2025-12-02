@@ -88,6 +88,11 @@ export const Presentation = () => {
         alt="Budaya Indonesia Logo"
         className="budaya-logo"
       />
+      {/* Competition Info */}
+      <div className="competition-info">
+        <p>Kompetisi Inovasi Budaya</p>
+        <p>2025</p>
+      </div>
       {/* Bottom Corner Guides */}
       <div className="corner-guides"></div>
       <Navigation
@@ -97,6 +102,17 @@ export const Presentation = () => {
         onPreviousSlide={previousSlide}
         onShowSlide={showSlide}
       />
+      {/* Keyboard Navigation UI */}
+      <div className="keyboard-ui">
+        <div className="keyboard-row">
+          <div className="keyboard-key">↑</div>
+        </div>
+        <div className="keyboard-row">
+          <div className="keyboard-key">←</div>
+          <div className="keyboard-key">↓</div>
+          <div className="keyboard-key">→</div>
+        </div>
+      </div>
     </div>
   );
 };
