@@ -1192,10 +1192,21 @@ html, body, #root {
     opacity: 0.35;
 }
 
-/* Bottom-left corner using progress-bar */
-.progress-bar::before {
-    content: '';
+/* Bottom corner guides container */
+.corner-guides {
     position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    z-index: 200;
+    pointer-events: none;
+}
+
+/* Bottom-left corner */
+.corner-guides::before {
+    content: '';
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 40px;
@@ -1203,15 +1214,13 @@ html, body, #root {
     border-bottom: 3px solid var(--primary-color);
     border-left: 3px solid var(--primary-color);
     border-radius: 0 0 0 8px;
-    z-index: 200;
-    pointer-events: none;
     opacity: 0.35;
 }
 
-/* Bottom-right corner using progress-bar */
-.progress-bar::after {
+/* Bottom-right corner */
+.corner-guides::after {
     content: '';
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 0;
     width: 40px;
@@ -1219,8 +1228,6 @@ html, body, #root {
     border-bottom: 3px solid var(--primary-color);
     border-right: 3px solid var(--primary-color);
     border-radius: 0 0 8px 0;
-    z-index: 200;
-    pointer-events: none;
     opacity: 0.35;
 }
 

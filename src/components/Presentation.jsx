@@ -88,6 +88,8 @@ export const Presentation = () => {
         alt="Budaya Indonesia Logo"
         className="budaya-logo"
       />
+      {/* Bottom Corner Guides */}
+      <div className="corner-guides"></div>
       <Navigation
         currentSlide={currentSlide}
         totalSlides={TOTAL_SLIDES}
