@@ -17,8 +17,22 @@ export const useKeyboardNavigation = ({ nextSlide, previousSlide, showSlide, tot
         case 'ArrowLeft':
         case 'PageUp':
           e.preventDefault();
-          // Move to previous slide (no animation logic, just go back)
-          previousSlide();
+          // Check if current slide animation can be reverted
+          const backAnimationState = window.slideAnimationState;
+          if (backAnimationState) {
+            const slides = Object.values(backAnimationState);
+            const activeAnimationSlide = slides.find(s => s.isActive);
+
+            if (activeAnimationSlide && activeAnimationSlide.visibleItems > 0) {
+              // Items are visible, hide the last one
+              activeAnimationSlide.setVisibleItems(activeAnimationSlide.visibleItems - 1);
+            } else {
+              // No items visible, move to previous slide
+              previousSlide();
+            }
+          } else {
+            previousSlide();
+          }
           break;
         case 'Home':
           e.preventDefault();
