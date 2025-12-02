@@ -1217,12 +1217,16 @@ html, body, #root {
     position: relative;
 }
 
+/* Calculate responsive 16:9 dimensions - constrain to viewport height */
+/* If height is max, reduce width proportionally while keeping 16:9 ratio */
+/* Width = min(100vw, 177.78vh), Height = min(56.25vw, 100vh) */
+
 /* Top-left corner */
 .presentation::before {
     content: '';
     position: fixed;
-    top: calc(50% - 28.125vw);
-    left: calc(50% - 50vw);
+    top: calc(50% - min(28.125vw, 50vh));
+    left: calc(50% - min(50vw, 88.89vh));
     width: 40px;
     height: 40px;
     border-top: 3px solid var(--primary-color);
@@ -1237,8 +1241,8 @@ html, body, #root {
 .presentation::after {
     content: '';
     position: fixed;
-    top: calc(50% - 28.125vw);
-    right: calc(50% - 50vw);
+    top: calc(50% - min(28.125vw, 50vh));
+    right: calc(50% - min(50vw, 88.89vh));
     width: 40px;
     height: 40px;
     border-top: 3px solid var(--primary-color);
@@ -1252,8 +1256,8 @@ html, body, #root {
 /* Corner guides container for bottom corners */
 .corner-guides {
     position: fixed;
-    width: 100vw;
-    height: 56.25vw;
+    width: min(100vw, 177.78vh);
+    height: min(56.25vw, 100vh);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
