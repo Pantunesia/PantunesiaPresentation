@@ -7,6 +7,7 @@ import { useMouseActivityDetector } from '../hooks/useMouseActivityDetector';
 import { ProgressBar } from './ProgressBar';
 import { Navigation } from './Navigation';
 import logoBudaya from '../assets/logo-budaya.png';
+import logo1 from '../assets/logo-2.png';
 
 import { Slide1Title } from './slides/Slide1Title';
 import { Slide2Team } from './slides/Slide2Team';
@@ -87,18 +88,32 @@ export const Presentation = () => {
 
       <ProgressBar progress={progress} />
       {slides}
-      <img
-        src={logoBudaya}
-        alt="Budaya Indonesia Logo"
-        className="budaya-logo"
-      />
-      {/* Competition Info */}
-      <div className="competition-info">
-        <p>Kompetisi Inovasi Budaya</p>
-        <p>2025</p>
+
+
+
+      {/* Top Right Section - Logo, Competition Info, and Logo-2 */}
+      <div className="top-right-section">
+        <img
+          src={logoBudaya}
+          alt="Budaya Indonesia Logo"
+          className="budaya-logo"
+        />
+        {/* Competition Info */}
+        {/* <div className="competition-info">
+          <p>Kompetisi Inovasi Budaya</p>
+          <p>2025</p>
+        </div> */}
+        {/* Top Center Logo */}
+        <img
+          src={logo1}
+          alt="Pantunesia Logo"
+          className="top-center-logo"
+        />
       </div>
       {/* Bottom Corner Guides */}
       <div className="corner-guides"></div>
+
+      {/* Navigation - Always visible */}
       <Navigation
         currentSlide={currentSlide}
         totalSlides={TOTAL_SLIDES}
@@ -106,7 +121,8 @@ export const Presentation = () => {
         onPreviousSlide={previousSlide}
         onShowSlide={showSlide}
       />
-      {/* Keyboard Navigation UI */}
+
+      {/* Keyboard Navigation UI - Always visible */}
       <div className="keyboard-ui">
         <div className="keyboard-row">
           <div className="keyboard-key">↑</div>
@@ -117,19 +133,10 @@ export const Presentation = () => {
           <div className="keyboard-key">→</div>
         </div>
       </div>
-      {/* Keyboard Shortcuts Legend */}
-      <div className="keyboard-legend">
-        <span className="legend-item"><kbd>↑</kbd>Prev</span>
-        <span className="legend-item"><kbd>↓</kbd>Next</span>
-        <span className="legend-item"><kbd>←</kbd>Prev</span>
-        <span className="legend-item"><kbd>→</kbd>Next</span>
-        <span className="legend-item"><kbd>Space</kbd>Next</span>
-        <span className="legend-item"><kbd>PgUp</kbd>Prev</span>
-        <span className="legend-item"><kbd>PgDn</kbd>Next</span>
-        <span className="legend-item"><kbd>Home</kbd>First</span>
-        <span className="legend-item"><kbd>End</kbd>Last</span>
-        <span className="legend-item"><kbd>F</kbd>Full</span>
-        <span className="legend-item"><kbd>P</kbd>Print</span>
+
+      {/* Copyright */}
+      <div className="copyright">
+        <p>&copy; 2025 Pantunesia. All rights reserved.</p>
       </div>
     </div>
   );

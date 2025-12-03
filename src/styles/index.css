@@ -199,6 +199,10 @@ html, body, #root {
     padding-bottom: 20px;
 }
 
+.slide-title.animate {
+    animation: slideTitleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
 .slide-title::after {
     content: '';
     position: absolute;
@@ -1021,13 +1025,35 @@ html, body, #root {
 }
 
 /* Budaya Logo */
-.budaya-logo {
+.top-center-logo {
+    height: 80px;
+    object-fit: contain;
+    opacity: 0.95;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.top-center-logo:hover {
+    opacity: 1;
+}
+
+/* Top Right Section - Flex container for logos and competition info */
+.top-right-section {
     position: fixed;
-    top: 50px;
+    top: 20px;
     left: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 200;
+    pointer-events: none;
+}
+
+.budaya-logo {
     height: 50px;
     object-fit: contain;
-    z-index: 200;
     opacity: 0.9;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -1039,20 +1065,35 @@ html, body, #root {
 
 /* Competition Info Text */
 .competition-info {
-    position: fixed;
-    top: 50px;
-    right: 20px;
-    z-index: 200;
-    text-align: right;
+    text-align: center;
     pointer-events: none;
 }
 
 .competition-info p {
     margin: 0;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
     color: var(--primary-color);
     line-height: 1.4;
+}
+
+/* Copyright */
+.copyright {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    text-align: center;
+    pointer-events: none;
+}
+
+.copyright p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-dark);
+    opacity: 0.7;
 }
 
 /* Navigation */
@@ -1113,7 +1154,7 @@ html, body, #root {
     flex-direction: column;
     gap: 5px;
     z-index: 100;
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 .keyboard-row {
@@ -1432,6 +1473,32 @@ html, body, #root {
     margin: 0;
 }
 
+
+/* Fullscreen Styles */
+:fullscreen .corner-guides,
+:-webkit-full-screen .corner-guides,
+:-moz-full-screen .corner-guides {
+    display: none !important;
+}
+
+:fullscreen .presentation::before,
+:fullscreen .presentation::after,
+:-webkit-full-screen .presentation::before,
+:-webkit-full-screen .presentation::after,
+:-moz-full-screen .presentation::before,
+:-moz-full-screen .presentation::after {
+    display: none !important;
+}
+
+/* Hide navigation and keyboard UI in fullscreen */
+:fullscreen .navigation,
+:fullscreen .keyboard-ui,
+:-webkit-full-screen .navigation,
+:-webkit-full-screen .keyboard-ui,
+:-moz-full-screen .navigation,
+:-moz-full-screen .keyboard-ui {
+    display: none !important;
+}
 
 /* Print Styles */
 @media print {
