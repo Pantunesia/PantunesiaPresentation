@@ -1258,11 +1258,16 @@ html, body, #root {
 
 /* Hide UI on tablet/mobile regardless of mouse state */
 @media (max-width: 768px) {
-    .presentation .navigation,
-    .presentation .keyboard-ui,
-    .presentation .budaya-logo,
-    .presentation .top-center-logo {
+    .navigation,
+    .keyboard-ui,
+    .budaya-logo,
+    .top-center-logo {
         display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        width: 0 !important;
     }
 }
 
