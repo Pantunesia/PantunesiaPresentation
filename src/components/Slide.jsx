@@ -22,14 +22,19 @@ export const Slide = memo(({ id, isActive, children, animateItems = false, onAni
     }
 
     const contentItems = document.querySelectorAll(`#slide-${id} [data-animate-item]`);
-    setTotalItems(contentItems.length);
+    const itemCount = contentItems.length;
+    setTotalItems(itemCount);
 
-    if (visibleItems < contentItems.length) {
-      setVisibleItems(visibleItems + 1);
-    } else if (visibleItems >= contentItems.length && onNextSlide && !noAutoNext) {
-      // All items shown, move to next slide (unless noAutoNext is true)
-      onNextSlide();
-    }
+    // Use functional update to get the latest state value
+    setVisibleItems(prevVisibleItems => {
+      if (prevVisibleItems < itemCount) {
+        return prevVisibleItems + 1;
+      } else if (prevVisibleItems >= itemCount && onNextSlide && !noAutoNext) {
+        // All items shown, move to next slide (unless noAutoNext is true)
+        onNextSlide();
+      }
+      return prevVisibleItems;
+    });
   };
 
   // Check if all items are visible and trigger callback

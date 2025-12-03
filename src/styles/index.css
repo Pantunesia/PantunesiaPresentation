@@ -1210,10 +1210,15 @@ html, body, #root {
 
 .presentation.mouse-active .navigation,
 .presentation.mouse-active .keyboard-ui,
-.presentation.mouse-active .keyboard-legend,
-.presentation.mouse-active .corner-guides {
+.presentation.mouse-active .keyboard-legend {
     opacity: 1;
     pointer-events: auto;
+    transition: opacity 0.3s ease-in;
+}
+
+.presentation.mouse-active .corner-guides {
+    opacity: 1;
+    pointer-events: none;
     transition: opacity 0.3s ease-in;
 }
 
