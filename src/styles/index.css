@@ -1256,12 +1256,12 @@ html, body, #root {
     transition: opacity 0.3s ease-in;
 }
 
-/* Hide UI on tablet/mobile even when mouse is active */
+/* Hide UI on tablet/mobile regardless of mouse state */
 @media (max-width: 768px) {
-    .presentation.mouse-active .navigation,
-    .presentation.mouse-active .keyboard-ui,
-    .presentation.mouse-active .budaya-logo,
-    .presentation.mouse-active .top-center-logo {
+    .presentation .navigation,
+    .presentation .keyboard-ui,
+    .presentation .budaya-logo,
+    .presentation .top-center-logo {
         display: none !important;
     }
 }
@@ -1373,13 +1373,7 @@ html, body, #root {
         gap: 15px;
     }
 
-    /* Hide UI elements on tablet */
-    .budaya-logo,
-    .top-center-logo,
-    .navigation,
-    .keyboard-ui {
-        display: none !important;
-    }
+    /* Already hidden by global media query rule above, but adding for specificity */
 }
 
 /* Mobile phones (max-width: 480px) */
@@ -1471,13 +1465,7 @@ html, body, #root {
         height: 100px;
     }
 
-    /* Hide UI elements on mobile */
-    .budaya-logo,
-    .top-center-logo,
-    .navigation,
-    .keyboard-ui {
-        display: none !important;
-    }
+    /* Already hidden by global media query rule above */
 }
 
 /* 16:9 Aspect Ratio Corner Guides */
