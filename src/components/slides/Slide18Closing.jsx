@@ -1,15 +1,11 @@
 import { memo } from 'react';
 import { Slide } from '../Slide';
-import logo from '../../assets/logo.png';
 
 export const Slide18Closing = memo(({ isActive, onNextSlide }) => {
   return (
     <Slide id={18} isActive={isActive} onNextSlide={onNextSlide}>
       <div className="slide-content closing-slide">
         <div className="closing-content">
-          <div className="closing-icon">
-            <img src={logo} alt="Pantunesia" />
-          </div>
           <p className="closing-text">
             Pantun bukan sekadar warisan, tapi jembatan<br />
             antara generasi masa lalu dan masa depan.<br />
@@ -18,7 +14,7 @@ export const Slide18Closing = memo(({ isActive, onNextSlide }) => {
             dapat menghidupkan kembali jiwa budaya kita.<br />
             <br />
             <strong>Pantunesia adalah bukti bahwa inovasi<br />
-            lahir dari cinta kepada tradisi.</strong>
+              lahir dari cinta kepada tradisi.</strong>
           </p>
           <h2 className="closing-title">Terima Kasih</h2>
           <div className="contact-info">

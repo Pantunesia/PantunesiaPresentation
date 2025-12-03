@@ -1012,6 +1012,7 @@ html, body, #root {
 .closing-slide {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     color: var(--white);
+    padding: 100px 0;
 }
 
 .closing-content {
@@ -1074,7 +1075,7 @@ html, body, #root {
 
 .closing-title {
     font-size: 36px;
-    font-weight: 800;
+    font-weight: 600 !important;
     margin-bottom: 30px;
     color: var(--white);
 }

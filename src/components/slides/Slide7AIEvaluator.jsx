@@ -30,7 +30,7 @@ export const Slide7AIEvaluator = memo(({ isActive, onNextSlide }) => {
     <Slide id={7} isActive={isActive} animateItems={true} onNextSlide={onNextSlide}>
       {(visibleItems) => (
         <div className="slide-content">
-          <SlideTitle>AI Evaluator: Cara Kerja</SlideTitle>
+          <SlideTitle>AI Evaluator & Scoring System</SlideTitle>
           <div className="evaluator-steps">
             {steps.map((step, index) => (
               <div
