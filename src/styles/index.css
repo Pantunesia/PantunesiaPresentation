@@ -1282,6 +1282,11 @@ html, body, #root {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .slide-content {
+        width: 92%;
+        padding: 25px;
+    }
+
     .main-title {
         font-size: 48px;
     }
@@ -1292,10 +1297,18 @@ html, body, #root {
 
     .slide-title {
         font-size: 36px;
+        margin-bottom: 30px;
     }
 
+    /* Card-based layouts for tablet */
     .team-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 
     .two-col {
@@ -1304,10 +1317,68 @@ html, body, #root {
 
     .solution-features {
         grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .modes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .gamification-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .impact-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .advantage-item,
+    .timeline-item,
+    .roadmap-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .advantage-icon,
+    .step-icon {
+        width: 70px;
+        height: 70px;
+        min-width: auto;
+    }
+
+    .advantage-item:hover,
+    .timeline-item:hover,
+    .roadmap-item:hover {
+        transform: none;
+    }
+
+    .evaluator-steps {
+        gap: 15px;
+    }
+
+    .evaluator-step {
+        gap: 15px;
+    }
+
+    /* Adjust top section for tablets */
+    .top-right-section {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        width: calc(100% - 30px);
+        gap: 10px;
+    }
+
+    .budaya-logo {
+        height: 40px;
+    }
+
+    .top-center-logo {
+        height: 60px;
     }
 
     .navigation {
@@ -1325,19 +1396,138 @@ html, body, #root {
         font-size: 16px;
         min-width: 60px;
     }
+}
+
+/* Mobile phones (max-width: 480px) */
+@media (max-width: 480px) {
+    .slide-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .main-title {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .slide-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    /* Full card stacking on mobile */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .solution-features {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .modes-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .gamification-features {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
 
     .advantage-item,
     .timeline-item,
     .roadmap-item {
         flex-direction: column;
         text-align: center;
+        gap: 12px;
     }
 
-    .advantage-item:hover,
-    .timeline-item:hover,
-    .roadmap-item:hover {
-        transform: translateY(-5px);
-        transform: none;
+    .advantage-icon,
+    .step-icon {
+        width: 65px;
+        height: 65px;
+        min-width: auto;
+    }
+
+    .evaluator-steps {
+        gap: 12px;
+    }
+
+    .evaluator-step {
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .team-member {
+        padding: 20px 15px;
+    }
+
+    .member-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .member-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .top-right-section {
+        flex-direction: column;
+        gap: 8px;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .budaya-logo {
+        height: 35px;
+    }
+
+    .top-center-logo {
+        height: 50px;
+    }
+
+    .navigation {
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        gap: 10px;
+        padding: 8px 15px;
+    }
+
+    .nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .keyboard-ui {
+        bottom: 70px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .keyboard-key {
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
     }
 }
 
