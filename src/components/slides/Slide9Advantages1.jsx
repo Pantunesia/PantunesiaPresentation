@@ -48,11 +48,12 @@ export const Slide9Advantages1 = memo(({ isActive, onNextSlide }) => {
           </div>
           <div
             data-animate-item
+            data-animate-type="highlight"
             style={{
               opacity: advantages.length < visibleItems ? 1 : 0,
-              transition: 'opacity 0.5s ease-in-out',
               pointerEvents: advantages.length < visibleItems ? 'auto' : 'none',
             }}
+            className="highlight-box-wrapper"
           >
             <div className="highlight-box">
               <i className="fas fa-star"></i>

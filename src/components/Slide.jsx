@@ -1,12 +1,14 @@
-import { memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect, useRef } from 'react';
 
-export const Slide = memo(({ id, isActive, children, animateItems = false, onAnimationComplete, onNextSlide, noAutoNext = false }) => {
+export const Slide = memo(({ id, isActive, children, animateItems = false, onAnimationComplete, onNextSlide }) => {
   const [visibleItems, setVisibleItems] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+  const itemsShownRef = useRef(false);
 
   useEffect(() => {
     if (!isActive) {
       setVisibleItems(0);
+      itemsShownRef.current = false;
     }
   }, [isActive]);
 
@@ -25,16 +27,18 @@ export const Slide = memo(({ id, isActive, children, animateItems = false, onAni
     const itemCount = contentItems.length;
     setTotalItems(itemCount);
 
-    // Use functional update to get the latest state value
-    setVisibleItems(prevVisibleItems => {
-      if (prevVisibleItems < itemCount) {
-        return prevVisibleItems + 1;
-      } else if (prevVisibleItems >= itemCount && onNextSlide && !noAutoNext) {
-        // All items shown, move to next slide (unless noAutoNext is true)
+    // Check current state to determine action
+    if (!itemsShownRef.current) {
+      // First click: show all items at once (skip animation)
+      itemsShownRef.current = true;
+      setVisibleItems(itemCount);
+    } else if (visibleItems >= itemCount) {
+      // All items already shown, move to next slide on second click
+      if (onNextSlide) {
         onNextSlide();
       }
-      return prevVisibleItems;
-    });
+    }
+    // During animation (0 < visibleItems < itemCount): disable click event
   };
 
   // Check if all items are visible and trigger callback
@@ -54,12 +58,17 @@ export const Slide = memo(({ id, isActive, children, animateItems = false, onAni
     }
   }, [id, visibleItems, animateItems, isActive, totalItems]);
 
+  // Determine if animation is currently in progress
+  const isAnimating = animateItems && itemsShownRef.current && visibleItems > 0 && visibleItems < totalItems;
+
   return (
     <section
-      className={`slide ${isActive ? 'active' : ''}`}
+      className={`slide ${isActive ? 'active' : ''} ${isAnimating ? 'animating' : ''}`}
       id={`slide-${id}`}
       onClick={handleSlideClick}
-      style={{ cursor: 'pointer' }}
+      style={{
+        cursor: isAnimating ? 'not-allowed' : 'pointer'
+      }}
     >
       {children && typeof children === 'function'
         ? children(visibleItems)

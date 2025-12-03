@@ -7,12 +7,12 @@ export const Slide7AIEvaluator = memo(({ isActive, onNextSlide }) => {
     {
       icon: 'check-circle',
       title: 'Validasi Struktur',
-      description: 'Memverifikasi rima, meter, dan struktur pantun yang sesuai kaidah',
+      description: 'Memverifikasi rima dan struktur pantun yang sesuai kaidah',
     },
     {
       icon: 'brain',
       title: 'Analisis Konten',
-      description: 'AI menganalisis makna dan kandungan pantun yang dibuat pengguna',
+      description: 'AI menganalisis makna, logika dan hubungan antar baris pantun yang dibuat pengguna',
     },
     {
       icon: 'calculator',

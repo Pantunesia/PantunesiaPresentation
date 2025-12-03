@@ -12,11 +12,79 @@
 /* Bounce animation for animated items when they appear */
 [data-animate-item] {
     transform-origin: center !important;
+    opacity: 0;
 }
 
-/* Apply bounce only when opacity becomes 1 (item becomes visible) */
+/* Apply bounce animation when opacity becomes 1 (item becomes visible) */
 [data-animate-item][style*="opacity: 1"] {
-    animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    animation: bounceIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both !important;
+}
+
+/* Sequential animation delays - each item waits for previous to finish */
+.advantages-list [data-animate-item][style*="opacity: 1"]:nth-child(1) {
+    animation-delay: 0ms !important;
+}
+.advantages-list [data-animate-item][style*="opacity: 1"]:nth-child(2) {
+    animation-delay: 400ms !important;
+}
+.advantages-list [data-animate-item][style*="opacity: 1"]:nth-child(3) {
+    animation-delay: 800ms !important;
+}
+
+.team-grid [data-animate-item][style*="opacity: 1"]:nth-child(1) {
+    animation-delay: 0ms !important;
+}
+.team-grid [data-animate-item][style*="opacity: 1"]:nth-child(2) {
+    animation-delay: 400ms !important;
+}
+.team-grid [data-animate-item][style*="opacity: 1"]:nth-child(3) {
+    animation-delay: 800ms !important;
+}
+.team-grid [data-animate-item][style*="opacity: 1"]:nth-child(4) {
+    animation-delay: 1200ms !important;
+}
+.team-grid [data-animate-item][style*="opacity: 1"]:nth-child(5) {
+    animation-delay: 1600ms !important;
+}
+.team-grid [data-animate-item][style*="opacity: 1"]:nth-child(6) {
+    animation-delay: 2000ms !important;
+}
+
+/* Default delays for other grid-based items */
+[data-animate-item][style*="opacity: 1"]:nth-of-type(1) {
+    animation-delay: 0ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(2) {
+    animation-delay: 400ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(3) {
+    animation-delay: 800ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(4) {
+    animation-delay: 1200ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(5) {
+    animation-delay: 1600ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(6) {
+    animation-delay: 2000ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(7) {
+    animation-delay: 2400ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(8) {
+    animation-delay: 2800ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(9) {
+    animation-delay: 3200ms !important;
+}
+[data-animate-item][style*="opacity: 1"]:nth-of-type(10) {
+    animation-delay: 3600ms !important;
+}
+
+/* Special delay for highlight boxes that should appear last */
+[data-animate-item][data-animate-type="highlight"][style*="opacity: 1"] {
+    animation-delay: 1200ms !important;
 }
 
 body {
@@ -113,6 +181,10 @@ html, body, #root {
     opacity: 1;
     visibility: visible;
     z-index: 1;
+}
+
+.slide.animating {
+    pointer-events: none !important;
 }
 
 .slide-content {
