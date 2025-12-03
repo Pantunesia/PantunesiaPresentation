@@ -1238,8 +1238,7 @@ html, body, #root {
 
 .presentation.mouse-inactive .navigation,
 .presentation.mouse-inactive .keyboard-ui,
-.presentation.mouse-inactive .keyboard-legend,
-.presentation.mouse-inactive .corner-guides {
+.presentation.mouse-inactive .keyboard-legend {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease-out;
@@ -1257,11 +1256,21 @@ html, body, #root {
     transition: opacity 0.3s ease-in;
 }
 
-.presentation.mouse-active .corner-guides {
+/* Hide UI on tablet/mobile even when mouse is active */
+@media (max-width: 768px) {
+    .presentation.mouse-active .navigation,
+    .presentation.mouse-active .keyboard-ui,
+    .presentation.mouse-active .budaya-logo,
+    .presentation.mouse-active .top-center-logo {
+        display: none !important;
+    }
+}
+
+/* .presentation.mouse-active .corner-guides {
     opacity: 1;
     pointer-events: none;
     transition: opacity 0.3s ease-in;
-}
+} */
 
 /* Progress Bar */
 .progress-bar {
