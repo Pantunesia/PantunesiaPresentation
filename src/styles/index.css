@@ -1256,8 +1256,8 @@ html, body, #root {
     transition: opacity 0.3s ease-in;
 }
 
-/* Hide UI on tablet/mobile regardless of mouse state */
-@media (max-width: 768px) {
+/* Hide UI on tablet/mobile regardless of orientation and mouse state */
+@media (max-width: 768px), (max-height: 600px) {
     .navigation,
     .keyboard-ui,
     .budaya-logo,
